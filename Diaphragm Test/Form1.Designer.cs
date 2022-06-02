@@ -708,7 +708,6 @@
             this.ForceTimeChart.Size = new System.Drawing.Size(33, 49);
             this.ForceTimeChart.TabIndex = 72;
             this.ForceTimeChart.TabStop = false;
-            this.ForceTimeChart.Click += new System.EventHandler(this.ForceTimeChart_Click);
             // 
             // ControlGroupBox
             // 
