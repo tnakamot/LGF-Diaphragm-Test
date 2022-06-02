@@ -1781,8 +1781,6 @@ namespace Diaphragm_Test
             NegativeCurrentOn(true);
         }
 
-
-
         private void ZeroPositionBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Confirm Fixture Bar is in Place", "Important Question", MessageBoxButtons.YesNo);

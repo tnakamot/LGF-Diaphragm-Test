@@ -156,11 +156,11 @@
             // 
             // ForceTextBox
             // 
-            this.ForceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.ForceTextBox.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.ForceTextBox.Location = new System.Drawing.Point(269, 41);
             this.ForceTextBox.Name = "ForceTextBox";
             this.ForceTextBox.ReadOnly = true;
-            this.ForceTextBox.Size = new System.Drawing.Size(95, 31);
+            this.ForceTextBox.Size = new System.Drawing.Size(95, 28);
             this.ForceTextBox.TabIndex = 0;
             this.ForceTextBox.TabStop = false;
             // 
@@ -172,29 +172,29 @@
             // 
             // StrokeTextBox
             // 
-            this.StrokeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.StrokeTextBox.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.StrokeTextBox.Location = new System.Drawing.Point(269, 74);
             this.StrokeTextBox.Name = "StrokeTextBox";
             this.StrokeTextBox.ReadOnly = true;
-            this.StrokeTextBox.Size = new System.Drawing.Size(95, 31);
+            this.StrokeTextBox.Size = new System.Drawing.Size(95, 28);
             this.StrokeTextBox.TabIndex = 1;
             this.StrokeTextBox.TabStop = false;
             // 
             // CycleTextBox
             // 
-            this.CycleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.CycleTextBox.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CycleTextBox.Location = new System.Drawing.Point(269, 140);
             this.CycleTextBox.Name = "CycleTextBox";
             this.CycleTextBox.ReadOnly = true;
-            this.CycleTextBox.Size = new System.Drawing.Size(95, 31);
+            this.CycleTextBox.Size = new System.Drawing.Size(95, 28);
             this.CycleTextBox.TabIndex = 2;
             this.CycleTextBox.TabStop = false;
             // 
             // StartBtn
             // 
             this.StartBtn.BackColor = System.Drawing.Color.Lime;
-            this.StartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.StartBtn.Location = new System.Drawing.Point(10, 368);
+            this.StartBtn.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartBtn.Location = new System.Drawing.Point(-41, 6);
             this.StartBtn.Name = "StartBtn";
             this.StartBtn.Size = new System.Drawing.Size(185, 126);
             this.StartBtn.TabIndex = 7;
@@ -207,7 +207,7 @@
             // StopBtn
             // 
             this.StopBtn.BackColor = System.Drawing.Color.Red;
-            this.StopBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.StopBtn.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopBtn.ForeColor = System.Drawing.SystemColors.Window;
             this.StopBtn.Location = new System.Drawing.Point(11, 368);
             this.StopBtn.Name = "StopBtn";
@@ -221,11 +221,11 @@
             // 
             // SpeedTextBox
             // 
-            this.SpeedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.SpeedTextBox.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.SpeedTextBox.Location = new System.Drawing.Point(269, 107);
             this.SpeedTextBox.Name = "SpeedTextBox";
             this.SpeedTextBox.ReadOnly = true;
-            this.SpeedTextBox.Size = new System.Drawing.Size(95, 31);
+            this.SpeedTextBox.Size = new System.Drawing.Size(95, 28);
             this.SpeedTextBox.TabIndex = 11;
             this.SpeedTextBox.TabStop = false;
             // 
@@ -239,36 +239,36 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label2.Location = new System.Drawing.Point(147, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 25);
+            this.label2.Size = new System.Drawing.Size(107, 21);
             this.label2.TabIndex = 13;
             this.label2.Text = "Stroke(µm)";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.label3.Location = new System.Drawing.Point(176, 144);
+            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label3.Location = new System.Drawing.Point(177, 144);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 25);
+            this.label3.Size = new System.Drawing.Size(77, 21);
             this.label3.TabIndex = 14;
             this.label3.Text = "Cycle #";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label4.Location = new System.Drawing.Point(130, 111);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(134, 25);
+            this.label4.Size = new System.Drawing.Size(124, 21);
             this.label4.TabIndex = 15;
             this.label4.Text = "Speed(µm/s)";
             // 
             // ZeroForceBtn
             // 
-            this.ZeroForceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ZeroForceBtn.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.ZeroForceBtn.Location = new System.Drawing.Point(26, 42);
             this.ZeroForceBtn.Name = "ZeroForceBtn";
             this.ZeroForceBtn.Size = new System.Drawing.Size(102, 29);
@@ -280,7 +280,7 @@
             // 
             // ZeroPositionBtn
             // 
-            this.ZeroPositionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ZeroPositionBtn.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.ZeroPositionBtn.Location = new System.Drawing.Point(26, 78);
             this.ZeroPositionBtn.Name = "ZeroPositionBtn";
             this.ZeroPositionBtn.Size = new System.Drawing.Size(102, 29);
@@ -293,43 +293,43 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.label7.Location = new System.Drawing.Point(19, 277);
+            this.label7.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label7.Location = new System.Drawing.Point(41, 277);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(243, 25);
+            this.label7.Size = new System.Drawing.Size(213, 21);
             this.label7.TabIndex = 27;
             this.label7.Text = "Time Remaining(mm:ss)";
             this.label7.Visible = false;
             // 
             // TimeRemainingTextBox
             // 
-            this.TimeRemainingTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.TimeRemainingTextBox.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.TimeRemainingTextBox.Location = new System.Drawing.Point(270, 273);
             this.TimeRemainingTextBox.Name = "TimeRemainingTextBox";
             this.TimeRemainingTextBox.ReadOnly = true;
             this.TimeRemainingTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TimeRemainingTextBox.Size = new System.Drawing.Size(95, 31);
+            this.TimeRemainingTextBox.Size = new System.Drawing.Size(95, 28);
             this.TimeRemainingTextBox.TabIndex = 28;
             this.TimeRemainingTextBox.TabStop = false;
             this.TimeRemainingTextBox.Visible = false;
             // 
             // CurrentTextBox
             // 
-            this.CurrentTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.CurrentTextBox.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CurrentTextBox.Location = new System.Drawing.Point(269, 207);
             this.CurrentTextBox.Name = "CurrentTextBox";
             this.CurrentTextBox.ReadOnly = true;
-            this.CurrentTextBox.Size = new System.Drawing.Size(95, 31);
+            this.CurrentTextBox.Size = new System.Drawing.Size(95, 28);
             this.CurrentTextBox.TabIndex = 29;
             this.CurrentTextBox.TabStop = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.label8.Location = new System.Drawing.Point(134, 210);
+            this.label8.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label8.Location = new System.Drawing.Point(136, 210);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(128, 25);
+            this.label8.Size = new System.Drawing.Size(118, 21);
             this.label8.TabIndex = 30;
             this.label8.Text = "Current(mA)";
             // 
@@ -338,17 +338,18 @@
             this.ConfigGroupBox.Controls.Add(this.OpenConfigBtn);
             this.ConfigGroupBox.Controls.Add(this.ConfigFilePathLabel);
             this.ConfigGroupBox.Controls.Add(this.ApplyBtn);
+            this.ConfigGroupBox.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.ConfigGroupBox.Location = new System.Drawing.Point(951, 4);
             this.ConfigGroupBox.Name = "ConfigGroupBox";
-            this.ConfigGroupBox.Size = new System.Drawing.Size(940, 52);
+            this.ConfigGroupBox.Size = new System.Drawing.Size(940, 59);
             this.ConfigGroupBox.TabIndex = 34;
             this.ConfigGroupBox.TabStop = false;
             this.ConfigGroupBox.Text = "Settings";
             // 
             // OpenConfigBtn
             // 
-            this.OpenConfigBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.OpenConfigBtn.Location = new System.Drawing.Point(6, 16);
+            this.OpenConfigBtn.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenConfigBtn.Location = new System.Drawing.Point(6, 22);
             this.OpenConfigBtn.Name = "OpenConfigBtn";
             this.OpenConfigBtn.Size = new System.Drawing.Size(96, 29);
             this.OpenConfigBtn.TabIndex = 22;
@@ -360,18 +361,18 @@
             // ConfigFilePathLabel
             // 
             this.ConfigFilePathLabel.AutoSize = true;
-            this.ConfigFilePathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ConfigFilePathLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConfigFilePathLabel.Location = new System.Drawing.Point(228, 22);
             this.ConfigFilePathLabel.Name = "ConfigFilePathLabel";
-            this.ConfigFilePathLabel.Size = new System.Drawing.Size(0, 20);
+            this.ConfigFilePathLabel.Size = new System.Drawing.Size(0, 16);
             this.ConfigFilePathLabel.TabIndex = 34;
             this.ConfigFilePathLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ApplyBtn
             // 
             this.ApplyBtn.Enabled = false;
-            this.ApplyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.ApplyBtn.Location = new System.Drawing.Point(108, 16);
+            this.ApplyBtn.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApplyBtn.Location = new System.Drawing.Point(108, 22);
             this.ApplyBtn.Name = "ApplyBtn";
             this.ApplyBtn.Size = new System.Drawing.Size(96, 29);
             this.ApplyBtn.TabIndex = 49;
@@ -382,8 +383,8 @@
             // 
             // SaveLogBtn
             // 
-            this.SaveLogBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.SaveLogBtn.Location = new System.Drawing.Point(340, 193);
+            this.SaveLogBtn.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.SaveLogBtn.Location = new System.Drawing.Point(336, 187);
             this.SaveLogBtn.Name = "SaveLogBtn";
             this.SaveLogBtn.Size = new System.Drawing.Size(96, 29);
             this.SaveLogBtn.TabIndex = 5;
@@ -406,9 +407,10 @@
             this.LogGroupBox.Controls.Add(this.OperatorTextBox);
             this.LogGroupBox.Controls.Add(this.SaveLogBtn);
             this.LogGroupBox.Enabled = false;
-            this.LogGroupBox.Location = new System.Drawing.Point(5, 0);
+            this.LogGroupBox.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LogGroupBox.Location = new System.Drawing.Point(5, 10);
             this.LogGroupBox.Name = "LogGroupBox";
-            this.LogGroupBox.Size = new System.Drawing.Size(479, 231);
+            this.LogGroupBox.Size = new System.Drawing.Size(479, 227);
             this.LogGroupBox.TabIndex = 0;
             this.LogGroupBox.TabStop = false;
             this.LogGroupBox.Text = "Log File";
@@ -416,55 +418,55 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label17.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label17.Location = new System.Drawing.Point(104, 150);
+            this.label17.Location = new System.Drawing.Point(93, 160);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(51, 20);
+            this.label17.Size = new System.Drawing.Size(46, 16);
             this.label17.TabIndex = 44;
             this.label17.Text = "Notes";
             this.label17.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // NotesTextBox
             // 
-            this.NotesTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.NotesTextBox.Location = new System.Drawing.Point(161, 144);
+            this.NotesTextBox.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.NotesTextBox.Location = new System.Drawing.Point(150, 154);
             this.NotesTextBox.Name = "NotesTextBox";
-            this.NotesTextBox.Size = new System.Drawing.Size(275, 31);
+            this.NotesTextBox.Size = new System.Drawing.Size(312, 23);
             this.NotesTextBox.TabIndex = 4;
             // 
             // SerialNumberTextBox
             // 
-            this.SerialNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.SerialNumberTextBox.Location = new System.Drawing.Point(162, 110);
+            this.SerialNumberTextBox.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.SerialNumberTextBox.Location = new System.Drawing.Point(151, 120);
             this.SerialNumberTextBox.Name = "SerialNumberTextBox";
-            this.SerialNumberTextBox.Size = new System.Drawing.Size(274, 31);
+            this.SerialNumberTextBox.Size = new System.Drawing.Size(312, 23);
             this.SerialNumberTextBox.TabIndex = 3;
             // 
             // TestNumberTextBox
             // 
-            this.TestNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.TestNumberTextBox.Location = new System.Drawing.Point(162, 77);
+            this.TestNumberTextBox.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TestNumberTextBox.Location = new System.Drawing.Point(151, 87);
             this.TestNumberTextBox.Name = "TestNumberTextBox";
-            this.TestNumberTextBox.Size = new System.Drawing.Size(274, 31);
+            this.TestNumberTextBox.Size = new System.Drawing.Size(311, 23);
             this.TestNumberTextBox.TabIndex = 2;
             // 
             // OrganizationTextBox
             // 
-            this.OrganizationTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.OrganizationTextBox.Location = new System.Drawing.Point(162, 43);
+            this.OrganizationTextBox.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.OrganizationTextBox.Location = new System.Drawing.Point(151, 53);
             this.OrganizationTextBox.Name = "OrganizationTextBox";
-            this.OrganizationTextBox.Size = new System.Drawing.Size(274, 31);
+            this.OrganizationTextBox.Size = new System.Drawing.Size(312, 23);
             this.OrganizationTextBox.TabIndex = 1;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label16.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label16.Location = new System.Drawing.Point(53, 116);
+            this.label16.Location = new System.Drawing.Point(42, 126);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(109, 20);
+            this.label16.Size = new System.Drawing.Size(102, 16);
             this.label16.TabIndex = 39;
             this.label16.Text = "Serial Number";
             this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -472,11 +474,11 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label15.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label15.Location = new System.Drawing.Point(64, 83);
+            this.label15.Location = new System.Drawing.Point(53, 93);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(98, 20);
+            this.label15.Size = new System.Drawing.Size(92, 16);
             this.label15.TabIndex = 38;
             this.label15.Text = "Test number";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -484,11 +486,11 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label14.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label14.Location = new System.Drawing.Point(20, 50);
+            this.label14.Location = new System.Drawing.Point(9, 60);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(143, 20);
+            this.label14.Size = new System.Drawing.Size(131, 16);
             this.label14.TabIndex = 37;
             this.label14.Text = "Organization name";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -496,11 +498,11 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label13.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label13.Location = new System.Drawing.Point(44, 17);
+            this.label13.Location = new System.Drawing.Point(33, 27);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(118, 20);
+            this.label13.Size = new System.Drawing.Size(111, 16);
             this.label13.TabIndex = 36;
             this.label13.Text = "Operator Name";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -508,59 +510,59 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(14, 198);
+            this.label6.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label6.Location = new System.Drawing.Point(16, 193);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 20);
+            this.label6.Size = new System.Drawing.Size(110, 16);
             this.label6.TabIndex = 23;
             this.label6.Text = "C:\\Test Report";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // OperatorTextBox
             // 
-            this.OperatorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.OperatorTextBox.Location = new System.Drawing.Point(162, 10);
+            this.OperatorTextBox.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.OperatorTextBox.Location = new System.Drawing.Point(151, 20);
             this.OperatorTextBox.Name = "OperatorTextBox";
-            this.OperatorTextBox.Size = new System.Drawing.Size(274, 31);
+            this.OperatorTextBox.Size = new System.Drawing.Size(311, 23);
             this.OperatorTextBox.TabIndex = 0;
             // 
             // CycleSPTextBox
             // 
-            this.CycleSPTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.CycleSPTextBox.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CycleSPTextBox.Location = new System.Drawing.Point(370, 140);
             this.CycleSPTextBox.Name = "CycleSPTextBox";
             this.CycleSPTextBox.ReadOnly = true;
-            this.CycleSPTextBox.Size = new System.Drawing.Size(95, 31);
+            this.CycleSPTextBox.Size = new System.Drawing.Size(95, 28);
             this.CycleSPTextBox.TabIndex = 37;
             this.CycleSPTextBox.TabStop = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label5.Location = new System.Drawing.Point(286, 17);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 20);
+            this.label5.Size = new System.Drawing.Size(66, 21);
             this.label5.TabIndex = 39;
             this.label5.Text = "Actual";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label10.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label10.Location = new System.Drawing.Point(396, 17);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 20);
+            this.label10.Size = new System.Drawing.Size(46, 21);
             this.label10.TabIndex = 40;
             this.label10.Text = "Max";
             // 
             // MaxCurrentTextBox
             // 
-            this.MaxCurrentTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.MaxCurrentTextBox.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.MaxCurrentTextBox.Location = new System.Drawing.Point(270, 240);
             this.MaxCurrentTextBox.Name = "MaxCurrentTextBox";
             this.MaxCurrentTextBox.ReadOnly = true;
-            this.MaxCurrentTextBox.Size = new System.Drawing.Size(95, 31);
+            this.MaxCurrentTextBox.Size = new System.Drawing.Size(95, 28);
             this.MaxCurrentTextBox.TabIndex = 50;
             this.MaxCurrentTextBox.TabStop = false;
             // 
@@ -578,10 +580,10 @@
             // AutoRadioButton
             // 
             this.AutoRadioButton.AutoSize = true;
-            this.AutoRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.AutoRadioButton.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.AutoRadioButton.Location = new System.Drawing.Point(22, 49);
             this.AutoRadioButton.Name = "AutoRadioButton";
-            this.AutoRadioButton.Size = new System.Drawing.Size(67, 28);
+            this.AutoRadioButton.Size = new System.Drawing.Size(70, 25);
             this.AutoRadioButton.TabIndex = 54;
             this.AutoRadioButton.Text = "Auto";
             this.AutoRadioButton.UseVisualStyleBackColor = true;
@@ -590,10 +592,10 @@
             // ManualRadioButton
             // 
             this.ManualRadioButton.AutoSize = true;
-            this.ManualRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.ManualRadioButton.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.ManualRadioButton.Location = new System.Drawing.Point(22, 18);
             this.ManualRadioButton.Name = "ManualRadioButton";
-            this.ManualRadioButton.Size = new System.Drawing.Size(90, 28);
+            this.ManualRadioButton.Size = new System.Drawing.Size(90, 25);
             this.ManualRadioButton.TabIndex = 53;
             this.ManualRadioButton.Text = "Manual";
             this.ManualRadioButton.UseVisualStyleBackColor = true;
@@ -601,6 +603,7 @@
             // 
             // PositiveBtn
             // 
+            this.PositiveBtn.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PositiveBtn.Location = new System.Drawing.Point(225, 67);
             this.PositiveBtn.Name = "PositiveBtn";
             this.PositiveBtn.Size = new System.Drawing.Size(92, 28);
@@ -612,26 +615,27 @@
             // 
             // SlopeRateTextBox
             // 
-            this.SlopeRateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.SlopeRateTextBox.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.SlopeRateTextBox.Location = new System.Drawing.Point(269, 174);
             this.SlopeRateTextBox.Name = "SlopeRateTextBox";
             this.SlopeRateTextBox.ReadOnly = true;
-            this.SlopeRateTextBox.Size = new System.Drawing.Size(95, 31);
+            this.SlopeRateTextBox.Size = new System.Drawing.Size(95, 28);
             this.SlopeRateTextBox.TabIndex = 68;
             this.SlopeRateTextBox.TabStop = false;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.label11.Location = new System.Drawing.Point(87, 244);
+            this.label11.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label11.Location = new System.Drawing.Point(94, 244);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(175, 25);
+            this.label11.Size = new System.Drawing.Size(160, 21);
             this.label11.TabIndex = 69;
             this.label11.Text = "Max Current(mA)";
             // 
             // NegativeBtn
             // 
+            this.NegativeBtn.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NegativeBtn.Location = new System.Drawing.Point(126, 67);
             this.NegativeBtn.Name = "NegativeBtn";
             this.NegativeBtn.Size = new System.Drawing.Size(92, 28);
@@ -643,6 +647,7 @@
             // 
             // CurrentOffBtn
             // 
+            this.CurrentOffBtn.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrentOffBtn.Location = new System.Drawing.Point(172, 101);
             this.CurrentOffBtn.Name = "CurrentOffBtn";
             this.CurrentOffBtn.Size = new System.Drawing.Size(92, 28);
@@ -677,7 +682,6 @@
             // 
             // ControlGroupBox
             // 
-            this.ControlGroupBox.Controls.Add(this.StartBtn);
             this.ControlGroupBox.Controls.Add(this.label9);
             this.ControlGroupBox.Controls.Add(this.PasswordGroupBox);
             this.ControlGroupBox.Controls.Add(this.ProgressBar);
@@ -708,19 +712,20 @@
             this.ControlGroupBox.Controls.Add(this.label5);
             this.ControlGroupBox.Controls.Add(this.StopBtn);
             this.ControlGroupBox.Enabled = false;
-            this.ControlGroupBox.Location = new System.Drawing.Point(3, 274);
+            this.ControlGroupBox.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ControlGroupBox.Location = new System.Drawing.Point(3, 243);
             this.ControlGroupBox.Name = "ControlGroupBox";
-            this.ControlGroupBox.Size = new System.Drawing.Size(481, 606);
+            this.ControlGroupBox.Size = new System.Drawing.Size(481, 637);
             this.ControlGroupBox.TabIndex = 0;
             this.ControlGroupBox.TabStop = false;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.label9.Location = new System.Drawing.Point(5, 177);
+            this.label9.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label9.Location = new System.Drawing.Point(13, 177);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(257, 25);
+            this.label9.Size = new System.Drawing.Size(241, 21);
             this.label9.TabIndex = 94;
             this.label9.Text = "Current Slope Rate(mA/s)";
             // 
@@ -730,18 +735,19 @@
             this.PasswordGroupBox.Controls.Add(this.OKButton);
             this.PasswordGroupBox.Controls.Add(this.PasswordLabel);
             this.PasswordGroupBox.Controls.Add(this.PasswordTextBox);
-            this.PasswordGroupBox.Location = new System.Drawing.Point(18, 510);
+            this.PasswordGroupBox.Location = new System.Drawing.Point(28, 512);
             this.PasswordGroupBox.Name = "PasswordGroupBox";
-            this.PasswordGroupBox.Size = new System.Drawing.Size(221, 92);
+            this.PasswordGroupBox.Size = new System.Drawing.Size(221, 110);
             this.PasswordGroupBox.TabIndex = 92;
             this.PasswordGroupBox.TabStop = false;
             this.PasswordGroupBox.Visible = false;
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(123, 66);
+            this.CancelButton.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CancelButton.Location = new System.Drawing.Point(116, 71);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 21);
+            this.CancelButton.Size = new System.Drawing.Size(93, 33);
             this.CancelButton.TabIndex = 3;
             this.CancelButton.TabStop = false;
             this.CancelButton.Text = "Cancel";
@@ -750,31 +756,32 @@
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(23, 66);
+            this.OKButton.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.OKButton.Location = new System.Drawing.Point(14, 71);
             this.OKButton.Name = "OKButton";
-            this.OKButton.Size = new System.Drawing.Size(75, 21);
+            this.OKButton.Size = new System.Drawing.Size(90, 33);
             this.OKButton.TabIndex = 2;
             this.OKButton.TabStop = false;
-            this.OKButton.Text = "Ok";
+            this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.PasswordLabel.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.PasswordLabel.Location = new System.Drawing.Point(39, 15);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(142, 24);
+            this.PasswordLabel.Size = new System.Drawing.Size(149, 21);
             this.PasswordLabel.TabIndex = 1;
             this.PasswordLabel.Text = "Enter Password";
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.PasswordTextBox.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.PasswordTextBox.Location = new System.Drawing.Point(53, 40);
             this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.Size = new System.Drawing.Size(100, 22);
+            this.PasswordTextBox.Size = new System.Drawing.Size(100, 28);
             this.PasswordTextBox.TabIndex = 0;
             this.PasswordTextBox.TabStop = false;
             this.PasswordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTextBox_KeyDown);
@@ -800,10 +807,10 @@
             // EngineerRadioButton
             // 
             this.EngineerRadioButton.AutoSize = true;
-            this.EngineerRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.EngineerRadioButton.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EngineerRadioButton.Location = new System.Drawing.Point(22, 49);
             this.EngineerRadioButton.Name = "EngineerRadioButton";
-            this.EngineerRadioButton.Size = new System.Drawing.Size(106, 28);
+            this.EngineerRadioButton.Size = new System.Drawing.Size(98, 23);
             this.EngineerRadioButton.TabIndex = 54;
             this.EngineerRadioButton.Text = "Engineer";
             this.EngineerRadioButton.UseVisualStyleBackColor = true;
@@ -813,10 +820,10 @@
             // 
             this.OperatorRadioButton.AutoSize = true;
             this.OperatorRadioButton.Checked = true;
-            this.OperatorRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.OperatorRadioButton.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OperatorRadioButton.Location = new System.Drawing.Point(22, 18);
             this.OperatorRadioButton.Name = "OperatorRadioButton";
-            this.OperatorRadioButton.Size = new System.Drawing.Size(102, 28);
+            this.OperatorRadioButton.Size = new System.Drawing.Size(99, 23);
             this.OperatorRadioButton.TabIndex = 53;
             this.OperatorRadioButton.TabStop = true;
             this.OperatorRadioButton.Text = "Operator";
@@ -826,6 +833,7 @@
             // VoiceCoilGroupBox
             // 
             this.VoiceCoilGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.VoiceCoilGroupBox.Controls.Add(this.StartBtn);
             this.VoiceCoilGroupBox.Controls.Add(this.ManualCurrentLabel);
             this.VoiceCoilGroupBox.Controls.Add(this.NegativeBtn);
             this.VoiceCoilGroupBox.Controls.Add(this.CurrenthScrollBar);
@@ -835,7 +843,7 @@
             this.VoiceCoilGroupBox.Controls.Add(this.PositiveLEDOn);
             this.VoiceCoilGroupBox.Controls.Add(this.NegativeLEDOn);
             this.VoiceCoilGroupBox.Controls.Add(this.PositiveBtn);
-            this.VoiceCoilGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.VoiceCoilGroupBox.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VoiceCoilGroupBox.Location = new System.Drawing.Point(53, 362);
             this.VoiceCoilGroupBox.Name = "VoiceCoilGroupBox";
             this.VoiceCoilGroupBox.Size = new System.Drawing.Size(381, 150);
@@ -847,9 +855,10 @@
             // ManualCurrentLabel
             // 
             this.ManualCurrentLabel.AutoSize = true;
+            this.ManualCurrentLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ManualCurrentLabel.Location = new System.Drawing.Point(30, 126);
             this.ManualCurrentLabel.Name = "ManualCurrentLabel";
-            this.ManualCurrentLabel.Size = new System.Drawing.Size(62, 20);
+            this.ManualCurrentLabel.Size = new System.Drawing.Size(60, 16);
             this.ManualCurrentLabel.TabIndex = 89;
             this.ManualCurrentLabel.Text = "Current";
             // 
@@ -901,30 +910,30 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.label12.Location = new System.Drawing.Point(168, 44);
+            this.label12.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label12.Location = new System.Drawing.Point(167, 44);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(96, 25);
+            this.label12.Size = new System.Drawing.Size(87, 21);
             this.label12.TabIndex = 74;
             this.label12.Text = "Force(N)";
             // 
             // MaxStrokeTextBox
             // 
-            this.MaxStrokeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.MaxStrokeTextBox.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.MaxStrokeTextBox.Location = new System.Drawing.Point(370, 75);
             this.MaxStrokeTextBox.Name = "MaxStrokeTextBox";
             this.MaxStrokeTextBox.ReadOnly = true;
-            this.MaxStrokeTextBox.Size = new System.Drawing.Size(95, 31);
+            this.MaxStrokeTextBox.Size = new System.Drawing.Size(95, 28);
             this.MaxStrokeTextBox.TabIndex = 73;
             this.MaxStrokeTextBox.TabStop = false;
             // 
             // MaxForceTextBox
             // 
-            this.MaxForceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.MaxForceTextBox.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.MaxForceTextBox.Location = new System.Drawing.Point(370, 41);
             this.MaxForceTextBox.Name = "MaxForceTextBox";
             this.MaxForceTextBox.ReadOnly = true;
-            this.MaxForceTextBox.Size = new System.Drawing.Size(95, 31);
+            this.MaxForceTextBox.Size = new System.Drawing.Size(95, 28);
             this.MaxForceTextBox.TabIndex = 72;
             this.MaxForceTextBox.TabStop = false;
             // 
@@ -949,10 +958,10 @@
             // StatusLabel
             // 
             this.StatusLabel.AutoSize = true;
-            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.StatusLabel.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StatusLabel.Location = new System.Drawing.Point(486, 898);
             this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(227, 25);
+            this.StatusLabel.Size = new System.Drawing.Size(211, 21);
             this.StatusLabel.TabIndex = 74;
             this.StatusLabel.Text = "Device Not Connected";
             // 
@@ -1064,19 +1073,20 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(487, 61);
+            this.tabControl1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tabControl1.Location = new System.Drawing.Point(487, 70);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1368, 761);
+            this.tabControl1.Size = new System.Drawing.Size(1368, 752);
             this.tabControl1.TabIndex = 101;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.chart1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1360, 735);
+            this.tabPage1.Size = new System.Drawing.Size(1360, 722);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Force-Stroke";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1107,30 +1117,30 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1360, 735);
+            this.tabPage2.Size = new System.Drawing.Size(1360, 722);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Current-Stroke";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1360, 735);
+            this.tabPage3.Size = new System.Drawing.Size(1360, 722);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Force-Time";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 26);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1360, 735);
+            this.tabPage4.Size = new System.Drawing.Size(1360, 722);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Combined";
             this.tabPage4.UseVisualStyleBackColor = true;
