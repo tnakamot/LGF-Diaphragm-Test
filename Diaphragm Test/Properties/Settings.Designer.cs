@@ -55,5 +55,41 @@ namespace Diaphragm_Test.Properties {
                 this["OperatorName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TestNumber {
+            get {
+                return ((string)(this["TestNumber"]));
+            }
+            set {
+                this["TestNumber"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SerialNumber {
+            get {
+                return ((string)(this["SerialNumber"]));
+            }
+            set {
+                this["SerialNumber"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Notes {
+            get {
+                return ((string)(this["Notes"]));
+            }
+            set {
+                this["Notes"] = value;
+            }
+        }
     }
 }

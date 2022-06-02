@@ -1735,8 +1735,11 @@ namespace Diaphragm_Test
         // </summary>
         private void RestoreHeaderInfo()
         {
-            OperatorTextBox.Text = Properties.Settings.Default.OperatorName;
+            OperatorTextBox.Text     = Properties.Settings.Default.OperatorName;
             OrganizationTextBox.Text = Properties.Settings.Default.OrganizationName;
+            TestNumberTextBox.Text   = Properties.Settings.Default.TestNumber;
+            SerialNumberTextBox.Text = Properties.Settings.Default.SerialNumber;
+            NotesTextBox.Text        = Properties.Settings.Default.Notes;
         }
         // <summary>
         // Save the header information (operator name, organization name, etc.) so that 
@@ -1745,8 +1748,12 @@ namespace Diaphragm_Test
         // </summary>
         private void SaveHeaderInfo()
         {
-            Properties.Settings.Default.OperatorName = OperatorTextBox.Text;
+            Properties.Settings.Default.OperatorName     = OperatorTextBox.Text;
             Properties.Settings.Default.OrganizationName = OrganizationTextBox.Text;
+            Properties.Settings.Default.TestNumber       = TestNumberTextBox.Text;
+            Properties.Settings.Default.SerialNumber     = SerialNumberTextBox.Text;
+            Properties.Settings.Default.Notes            = NotesTextBox.Text;
+
             Properties.Settings.Default.Save();
         }
         private void ApplyBtn_Click(object sender, EventArgs e)
