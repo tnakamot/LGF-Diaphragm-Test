@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Diaphragm Test")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Lateral Guide Flexure Tester")]
+[assembly: AssemblyDescription("Software to control the Lateral Guide Flexure Tester.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Diaphragm Test")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCompany("TMT International Observatory")]
+[assembly: AssemblyProduct("TMT Lateral Guide Flexure Tester")]
+[assembly: AssemblyCopyright("Copyright 2021 - 2022 TMT International Observatory.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,6 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.*")]
+
+// Do not explicitly specify AssemblyFileVersion so that it is automatically set to
+// the same version as AssemblyVersion.
+// [assembly: AssemblyFileVersion("1.0")]
