@@ -31,5 +31,29 @@ namespace Diaphragm_Test.Properties {
                 return ((string)(this["TMTWebURL"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("TMT International Observatory")]
+        public string OrganizationName {
+            get {
+                return ((string)(this["OrganizationName"]));
+            }
+            set {
+                this["OrganizationName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string OperatorName {
+            get {
+                return ((string)(this["OperatorName"]));
+            }
+            set {
+                this["OperatorName"] = value;
+            }
+        }
     }
 }

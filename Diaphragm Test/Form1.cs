@@ -1726,6 +1726,27 @@ namespace Diaphragm_Test
             TimeSpan t = TimeSpan.FromSeconds(TimeRemaining);
             TimeRemainingTextBox.Text = t.Minutes.ToString() + ":" + t.Seconds.ToString();
         }
+
+        // <summary>
+        // Restore the header information (operator name, organization name, etc.) that were
+        // saved the last time this form was closed.
+        // </summary>
+        private void RestoreHeaderInfo()
+        {
+            OperatorTextBox.Text = Properties.Settings.Default.OperatorName;
+            OrganizationTextBox.Text = Properties.Settings.Default.OrganizationName;
+        }
+        // <summary>
+        // Save the header information (operator name, organization name, etc.) so that 
+        // it can be restored next time <c>RestoreHeaderInfo()</c> is called. This method
+        // is supposed to be called when the form is closed.
+        // </summary>
+        private void SaveHeaderInfo()
+        {
+            Properties.Settings.Default.OperatorName = OperatorTextBox.Text;
+            Properties.Settings.Default.OrganizationName = OrganizationTextBox.Text;
+            Properties.Settings.Default.Save();
+        }
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
             ReadConfigFile();
@@ -1746,6 +1767,7 @@ namespace Diaphragm_Test
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            RestoreHeaderInfo();
             ReadConfigFile();
             ConfigFilePathLabel.Text = ConfigFilePath;
             AutoGroupBox.Hide();
@@ -1913,6 +1935,11 @@ namespace Diaphragm_Test
         private void TMTBanner_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Properties.Settings.Default.TMTWebURL);
+        }
+
+        private void Form1_Closing(object sender, FormClosingEventArgs e)
+        {
+            SaveHeaderInfo();
         }
     }
 }
