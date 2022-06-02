@@ -1,22 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diaphragm Test", "Diaphragm Test\Diaphragm Test.csproj", "{FE4D3CB8-F92C-4D92-9BDC-EAA910B38064}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
+		Debug (Offline Mode)|Any CPU = Debug (Offline Mode)|Any CPU
+		Debug (Online Mode)|Any CPU = Debug (Online Mode)|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FE4D3CB8-F92C-4D92-9BDC-EAA910B38064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE4D3CB8-F92C-4D92-9BDC-EAA910B38064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4D3CB8-F92C-4D92-9BDC-EAA910B38064}.Debug (Offline Mode)|Any CPU.ActiveCfg = Debug (Offline Mode)|Any CPU
+		{FE4D3CB8-F92C-4D92-9BDC-EAA910B38064}.Debug (Offline Mode)|Any CPU.Build.0 = Debug (Offline Mode)|Any CPU
+		{FE4D3CB8-F92C-4D92-9BDC-EAA910B38064}.Debug (Online Mode)|Any CPU.ActiveCfg = Debug (Online Mode)|Any CPU
+		{FE4D3CB8-F92C-4D92-9BDC-EAA910B38064}.Debug (Online Mode)|Any CPU.Build.0 = Debug (Online Mode)|Any CPU
 		{FE4D3CB8-F92C-4D92-9BDC-EAA910B38064}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE4D3CB8-F92C-4D92-9BDC-EAA910B38064}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1CA2CC3-E16C-4AD7-B68D-1ACC83882A6A}
 	EndGlobalSection
 EndGlobal

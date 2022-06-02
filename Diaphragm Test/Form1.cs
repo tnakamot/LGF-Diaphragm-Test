@@ -244,8 +244,10 @@ namespace Diaphragm_Test
         double ScaleFactor = 0;
         double PositionOffset = 0;
         //--------------- End of Global Varibles ------------------
-        public Form1()
+        public Form1(bool OfflineMode)
         {
+            this.OfflineMode = OfflineMode;
+
             InitializeComponent();
             DEV_BROADCAST_DEVICEINTERFACE DeviceBroadcastHeader = new DEV_BROADCAST_DEVICEINTERFACE();
             DeviceBroadcastHeader.dbcc_devicetype = DBT_DEVTYP_DEVICEINTERFACE;
