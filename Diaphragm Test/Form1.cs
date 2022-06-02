@@ -1912,7 +1912,7 @@ namespace Diaphragm_Test
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.Start(Properties.Settings.Default.TMTWebURL);
         }
     }
 }

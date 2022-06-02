@@ -103,6 +103,10 @@
             this.VoiceCoilGroupBox = new System.Windows.Forms.GroupBox();
             this.ManualCurrentLabel = new System.Windows.Forms.Label();
             this.CurrenthScrollBar = new System.Windows.Forms.HScrollBar();
+            this.PositiveLEDOff = new System.Windows.Forms.PictureBox();
+            this.NegativeLEDOff = new System.Windows.Forms.PictureBox();
+            this.PositiveLEDOn = new System.Windows.Forms.PictureBox();
+            this.NegativeLEDOn = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.MaxStrokeTextBox = new System.Windows.Forms.TextBox();
             this.MaxForceTextBox = new System.Windows.Forms.TextBox();
@@ -123,10 +127,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.TMTBanner = new System.Windows.Forms.PictureBox();
-            this.PositiveLEDOff = new System.Windows.Forms.PictureBox();
-            this.NegativeLEDOff = new System.Windows.Forms.PictureBox();
-            this.PositiveLEDOn = new System.Windows.Forms.PictureBox();
-            this.NegativeLEDOn = new System.Windows.Forms.PictureBox();
             this.ConfigGroupBox.SuspendLayout();
             this.LogGroupBox.SuspendLayout();
             this.AutoGroupBox.SuspendLayout();
@@ -135,6 +135,10 @@
             this.PasswordGroupBox.SuspendLayout();
             this.UserLevelGroupBox.SuspendLayout();
             this.VoiceCoilGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PositiveLEDOff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NegativeLEDOff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PositiveLEDOn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NegativeLEDOn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ForceStrokeChart)).BeginInit();
             this.ChartControlGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentStrokeChart)).BeginInit();
@@ -142,10 +146,6 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TMTBanner)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PositiveLEDOff)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NegativeLEDOff)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PositiveLEDOn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NegativeLEDOn)).BeginInit();
             this.SuspendLayout();
             // 
             // ReadWriteThread
@@ -860,6 +860,43 @@
             this.CurrenthScrollBar.TabIndex = 88;
             this.CurrenthScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.CurrenthScrollBar_Scroll);
             // 
+            // PositiveLEDOff
+            // 
+            this.PositiveLEDOff.Image = global::Diaphragm_Test.Properties.Resources._120px_LEDoff1;
+            this.PositiveLEDOff.Location = new System.Drawing.Point(244, 22);
+            this.PositiveLEDOff.Name = "PositiveLEDOff";
+            this.PositiveLEDOff.Size = new System.Drawing.Size(42, 39);
+            this.PositiveLEDOff.TabIndex = 54;
+            this.PositiveLEDOff.TabStop = false;
+            // 
+            // NegativeLEDOff
+            // 
+            this.NegativeLEDOff.Image = global::Diaphragm_Test.Properties.Resources._120px_LEDoff1;
+            this.NegativeLEDOff.Location = new System.Drawing.Point(149, 22);
+            this.NegativeLEDOff.Name = "NegativeLEDOff";
+            this.NegativeLEDOff.Size = new System.Drawing.Size(42, 39);
+            this.NegativeLEDOff.TabIndex = 55;
+            this.NegativeLEDOff.TabStop = false;
+            // 
+            // PositiveLEDOn
+            // 
+            this.PositiveLEDOn.Image = global::Diaphragm_Test.Properties.Resources._120px_LEDSample;
+            this.PositiveLEDOn.Location = new System.Drawing.Point(245, 23);
+            this.PositiveLEDOn.Name = "PositiveLEDOn";
+            this.PositiveLEDOn.Size = new System.Drawing.Size(42, 39);
+            this.PositiveLEDOn.TabIndex = 56;
+            this.PositiveLEDOn.TabStop = false;
+            // 
+            // NegativeLEDOn
+            // 
+            this.NegativeLEDOn.Image = global::Diaphragm_Test.Properties.Resources._120px_LEDSample;
+            this.NegativeLEDOn.Location = new System.Drawing.Point(149, 23);
+            this.NegativeLEDOn.Name = "NegativeLEDOn";
+            this.NegativeLEDOn.Size = new System.Drawing.Size(41, 41);
+            this.NegativeLEDOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.NegativeLEDOn.TabIndex = 57;
+            this.NegativeLEDOn.TabStop = false;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -1100,6 +1137,7 @@
             // TMTBanner
             // 
             this.TMTBanner.BackColor = System.Drawing.SystemColors.Control;
+            this.TMTBanner.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TMTBanner.Image = global::Diaphragm_Test.Properties.Resources.TMTLogo_BlackBlueHex;
             this.TMTBanner.InitialImage = global::Diaphragm_Test.Properties.Resources.TMTLogo_BlackBlueHex;
             this.TMTBanner.Location = new System.Drawing.Point(1634, 843);
@@ -1108,43 +1146,6 @@
             this.TMTBanner.TabIndex = 102;
             this.TMTBanner.TabStop = false;
             this.TMTBanner.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // PositiveLEDOff
-            // 
-            this.PositiveLEDOff.Image = global::Diaphragm_Test.Properties.Resources._120px_LEDoff1;
-            this.PositiveLEDOff.Location = new System.Drawing.Point(244, 22);
-            this.PositiveLEDOff.Name = "PositiveLEDOff";
-            this.PositiveLEDOff.Size = new System.Drawing.Size(42, 39);
-            this.PositiveLEDOff.TabIndex = 54;
-            this.PositiveLEDOff.TabStop = false;
-            // 
-            // NegativeLEDOff
-            // 
-            this.NegativeLEDOff.Image = global::Diaphragm_Test.Properties.Resources._120px_LEDoff1;
-            this.NegativeLEDOff.Location = new System.Drawing.Point(149, 22);
-            this.NegativeLEDOff.Name = "NegativeLEDOff";
-            this.NegativeLEDOff.Size = new System.Drawing.Size(42, 39);
-            this.NegativeLEDOff.TabIndex = 55;
-            this.NegativeLEDOff.TabStop = false;
-            // 
-            // PositiveLEDOn
-            // 
-            this.PositiveLEDOn.Image = global::Diaphragm_Test.Properties.Resources._120px_LEDSample;
-            this.PositiveLEDOn.Location = new System.Drawing.Point(245, 23);
-            this.PositiveLEDOn.Name = "PositiveLEDOn";
-            this.PositiveLEDOn.Size = new System.Drawing.Size(42, 39);
-            this.PositiveLEDOn.TabIndex = 56;
-            this.PositiveLEDOn.TabStop = false;
-            // 
-            // NegativeLEDOn
-            // 
-            this.NegativeLEDOn.Image = global::Diaphragm_Test.Properties.Resources._120px_LEDSample;
-            this.NegativeLEDOn.Location = new System.Drawing.Point(149, 23);
-            this.NegativeLEDOn.Name = "NegativeLEDOn";
-            this.NegativeLEDOn.Size = new System.Drawing.Size(41, 41);
-            this.NegativeLEDOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.NegativeLEDOn.TabIndex = 57;
-            this.NegativeLEDOn.TabStop = false;
             // 
             // Form1
             // 
@@ -1186,6 +1187,10 @@
             this.UserLevelGroupBox.PerformLayout();
             this.VoiceCoilGroupBox.ResumeLayout(false);
             this.VoiceCoilGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PositiveLEDOff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NegativeLEDOff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PositiveLEDOn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NegativeLEDOn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ForceStrokeChart)).EndInit();
             this.ChartControlGroupBox.ResumeLayout(false);
             this.ChartControlGroupBox.PerformLayout();
@@ -1194,10 +1199,6 @@
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TMTBanner)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PositiveLEDOff)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NegativeLEDOff)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PositiveLEDOn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NegativeLEDOn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

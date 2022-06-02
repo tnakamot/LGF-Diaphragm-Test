@@ -22,5 +22,14 @@ namespace Diaphragm_Test.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.tmt.org/")]
+        public string TMTWebURL {
+            get {
+                return ((string)(this["TMTWebURL"]));
+            }
+        }
     }
 }
