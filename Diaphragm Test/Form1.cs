@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using System.IO.Ports;
 using System.Threading;
 using System.Text.RegularExpressions;
@@ -44,6 +46,8 @@ namespace Diaphragm_Test
         internal const uint ERROR_SUCCESS = 0x00;
         internal const uint ERROR_NO_MORE_ITEMS = 0x00000103;
         internal const uint SPDRP_HARDWAREID = 0x00000001;
+
+        internal const String reportPath = "c:\\Test Reports\\";
 
         internal struct SP_DEVICE_INTERFACE_DATA
         {
@@ -299,6 +303,27 @@ namespace Diaphragm_Test
             ReadWriteThread.RunWorkerAsync();   
 
             PasswordTextBox.PasswordChar = '*';
+
+            try
+            {
+                tabPage1.Controls.Add(ForceStrokeChart);
+                ForceStrokeChart.SetBounds(0, 0, 1360, 940);
+
+                tabPage2.Controls.Add(CurrentStrokeChart);
+                CurrentStrokeChart.SetBounds(0, 0, 1360, 940);
+
+                tabPage3.Controls.Add(ForceTimeChart);
+                ForceTimeChart.SetBounds(0, 0, 1360, 940);
+/*
+                tabPage4.Controls.Add(ForceStrokeChart);
+                ForceTimeChart.SetBounds(0, 0, 1360, 310);
+                tabPage4.Controls.Add(CurrentStrokeChart);
+                ForceTimeChart.SetBounds(0, 315, 1360, 310);
+                tabPage4.Controls.Add(ForceTimeChart);
+                ForceTimeChart.SetBounds(0, 630, 1360, 310);
+*/
+
+            } catch (Exception e) { Console.WriteLine(e); }
         }
         bool CheckIfPresentAndGetUSBDevicePath()
         {
@@ -649,8 +674,28 @@ namespace Diaphragm_Test
                     if (CollectData && DataReceived)
                     {
                         this.ForceStrokeChart.Series[0].Points.AddXY(Math.Round(Stroke, 0), Force);
+                        if (this.ForceStrokeChart.Series[0].Points.Count > 2)
+                        {
+                            this.ForceStrokeChart.Series[0].Points[this.CurrentStrokeChart.Series[0].Points.Count - 1].MarkerSize = 6;
+                            this.ForceStrokeChart.Series[0].Points[this.CurrentStrokeChart.Series[0].Points.Count - 2].MarkerSize = 0;
+                            this.ForceStrokeChart.Series[0].Points[0].MarkerSize = 0;
+                        }
+
                         this.CurrentStrokeChart.Series[0].Points.AddXY(Math.Round(Stroke, 0), Current);
+                        if (this.CurrentStrokeChart.Series[0].Points.Count > 2)
+                        {
+                            this.CurrentStrokeChart.Series[0].Points[this.CurrentStrokeChart.Series[0].Points.Count-1].MarkerSize = 6;
+                            this.CurrentStrokeChart.Series[0].Points[this.CurrentStrokeChart.Series[0].Points.Count-2].MarkerSize = 0;
+                            this.CurrentStrokeChart.Series[0].Points[0].MarkerSize = 0;
+                        }
                         this.ForceTimeChart.Series[0].Points.AddXY(Math.Round(Time, 2), Force);
+                        if (this.ForceTimeChart.Series[0].Points.Count > 2)
+                        {
+                            this.ForceTimeChart.Series[0].Points[this.CurrentStrokeChart.Series[0].Points.Count - 1].MarkerSize = 6;
+                            this.ForceTimeChart.Series[0].Points[this.CurrentStrokeChart.Series[0].Points.Count - 2].MarkerSize = 0;
+                            this.ForceTimeChart.Series[0].Points[0].MarkerSize = 0;
+                        }
+
                         if (Math.Abs(Force) > MaxForce && SendOnce)
                         {
                             ControlWord = 0x101;
@@ -988,8 +1033,9 @@ namespace Diaphragm_Test
                 lines = text.Split('\n');
                 try
                 { 
-                    for (i = 0; i < 9; i++)
+                    for (i = 0; i < lines.Length; i++)              // JJ
                     {
+                        if (lines[i].StartsWith("////")) continue;  //JJ
                         words = lines[i].Split('=');
                         switch (words[0])
                         {
@@ -1158,6 +1204,7 @@ namespace Diaphragm_Test
                 MessageBox.Show("Invalid Loadcell Gain");
             }
         }
+        /*
         private void SaveData(int cycleNumber)
         {
             long i;
@@ -1330,6 +1377,197 @@ namespace Diaphragm_Test
             table[i - dataNumber4] = TimeData[i].ToString("0.00") + "," + ForceData[i].ToString("0.00") + "," + StrokeData[i].ToString("0.00") + "," + CurrentData[i].ToString("0.00");
             fileName = "SN" + SerialNumberTextBox.Text + "_Test" + TestNumberTextBox.Text + "_D_" + cycleNumber.ToString() + "_Date" + TimeStamp + ".CSV";
             System.IO.File.WriteAllText(@"c:\Test Report\" + fileName, sb.ToString());
+            
+        }
+        */
+
+        private void SaveData(int cycleNumber)
+        {
+            long i;
+            long dataNumber1 = 0, dataNumber2 = 0, dataNumber3 = 0, dataNumber4 = 0;
+            long n;
+            double peakCurrent = 0;
+            string delimiter = ",";
+
+            string fileName;
+            string[] table = new string[8640000];
+            StringBuilder sb = new StringBuilder();
+
+            if (0 == cycleNumber) return; // JJ
+
+            String dirPath = reportPath + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + "\\";
+            if (!Directory.Exists(dirPath))
+                Directory.CreateDirectory(dirPath);
+
+            try
+            {
+                Directory.SetCurrentDirectory(dirPath);
+            } catch (DirectoryNotFoundException e)
+            {
+                Console.WriteLine("Directory not found {0}", e);
+            }
+            table[0] = "Operator Name," + OperatorTextBox.Text + ", ,";
+            table[1] = "Organization name," + OrganizationTextBox.Text + ", ,";
+            table[2] = "Test Date," + Date;
+            table[3] = "Test Number," + TestNumberTextBox.Text + ", ,";
+            table[4] = "Serial Number," + SerialNumberTextBox.Text + ", ,";
+            table[5] = "Notes," + NotesTextBox.Text + ", ,";
+            table[6] = ", , , ,";
+            table[7] = "Time(mS),Force(N),Stroke(Micron),Current(mA),Index";
+            for (i = 0; i < 8; i++)
+            {
+                sb.AppendLine(string.Join(delimiter, table[i]));
+            }
+            for (i = 8; i < DataCount; i++)
+            {
+                table[i] = TimeData[i - 8].ToString("0.00") + "," + ForceData[i - 8].ToString("0.00") + "," + StrokeData[i - 8].ToString("0.00") + "," + CurrentData[i - 8].ToString("0.00") + "," + IndexData[i - 8].ToString();
+                sb.AppendLine(string.Join(delimiter, table[i]));
+            }
+            fileName = "SN" + SerialNumberTextBox.Text + "_Test" + TestNumberTextBox.Text + "_ALL_" + cycleNumber.ToString() + "_Date" + TimeStamp + ".CSV";
+            System.IO.File.WriteAllText(@dirPath + fileName, sb.ToString());
+            Array.Clear(table, 0, table.Length);
+            sb.Clear();
+            n = 0;
+            while (n < DataCount)
+            {
+                if (CurrentData[n] >= peakCurrent)
+                {
+                    peakCurrent = CurrentData[n];
+                }
+                else
+                {
+                    dataNumber1 = n;
+                    break;
+                }
+                n++;
+            }
+            while (n < DataCount)
+            {
+                if (CurrentData[n] <= peakCurrent)
+                {
+                    peakCurrent = CurrentData[n];
+                }
+                else
+                {
+                    dataNumber2 = n;
+                    break;
+                }
+                n++;
+            }
+            while (n < DataCount)
+            {
+                if (CurrentData[n] >= peakCurrent)
+                {
+                    peakCurrent = CurrentData[n];
+                }
+                else
+                {
+                    dataNumber3 = n;
+                    break;
+                }
+                n++;
+            }
+            while (n < DataCount)
+            {
+                if (CurrentData[n] <= peakCurrent)
+                {
+                    peakCurrent = CurrentData[n];
+                }
+                else
+                {
+                    dataNumber4 = n;
+                    break;
+                }
+                n++;
+            }
+            table[0] = "Operator Name," + OperatorTextBox.Text + ", ,";
+            table[1] = "Organization name," + OrganizationTextBox.Text + ", ,";
+            table[2] = "Test Date," + Date;
+            table[3] = "Test Number," + TestNumberTextBox.Text + ", ,";
+            table[4] = "Serial Number," + SerialNumberTextBox.Text + ", ,";
+            table[5] = "Notes," + NotesTextBox.Text + ", ,";
+            table[6] = "A";
+            table[7] = "Time(mS),Force(N),Stroke(Micron),Current(mA),Index";
+            for (i = 0; i < 8; i++)
+            {
+                sb.AppendLine(string.Join(delimiter, table[i]));
+            }
+            for (i = dataNumber1; i < dataNumber2; i++)
+            {
+                table[i - dataNumber1 + 9] = TimeData[i].ToString("0.00") + "," + ForceData[i].ToString("0.00") + "," + StrokeData[i].ToString("0.00") + "," + CurrentData[i].ToString("0.00") + "," + IndexData[i].ToString(); ;
+                sb.AppendLine(string.Join(delimiter, table[i - dataNumber1 + 9]));
+            }
+            fileName = "SN" + SerialNumberTextBox.Text + "_Test" + TestNumberTextBox.Text + "_A_" + cycleNumber.ToString() + "_Date" + TimeStamp + ".CSV";
+            System.IO.File.WriteAllText(@dirPath + fileName, sb.ToString());
+            Array.Clear(table, 0, table.Length);
+            sb.Clear();
+            table[0] = "Operator Name," + OperatorTextBox.Text + ", ,";
+            table[1] = "Organization name," + OrganizationTextBox.Text + ", ,";
+            table[2] = "Test Date," + Date;
+            table[3] = "Test Number," + TestNumberTextBox.Text + ", ,";
+            table[4] = "Serial Number," + SerialNumberTextBox.Text + ", ,";
+            table[5] = "Notes," + NotesTextBox.Text + ", ,";
+            table[6] = "B";
+            table[7] = "Time(mS),Force(N),Stroke(Micron),Current(mA),Index";
+            for (i = 0; i < 8; i++)
+            {
+                sb.AppendLine(string.Join(delimiter, table[i]));
+            }
+            for (i = dataNumber2; i < dataNumber3; i++)
+            {
+                table[i - dataNumber2 + 9] = TimeData[i].ToString("0.00") + "," + ForceData[i].ToString("0.00") + "," + StrokeData[i].ToString("0.00") + "," + CurrentData[i].ToString("0.00") + "," + IndexData[i].ToString();
+                sb.AppendLine(string.Join(delimiter, table[i - dataNumber2 + 9]));
+            }
+            fileName = "SN" + SerialNumberTextBox.Text + "_Test" + TestNumberTextBox.Text + "_B_" + cycleNumber.ToString() + "_Date" + TimeStamp + ".CSV";
+            System.IO.File.WriteAllText(@dirPath + fileName, sb.ToString());
+            Array.Clear(table, 0, table.Length);
+            sb.Clear();
+
+            table[0] = "Operator Name," + OperatorTextBox.Text + ", ,";
+            table[1] = "Organization name," + OrganizationTextBox.Text + ", ,";
+            table[2] = "Test Date," + Date;
+            table[3] = "Test Number," + TestNumberTextBox.Text + ", ,";
+            table[4] = "Serial Number," + SerialNumberTextBox.Text + ", ,";
+            table[5] = "Notes," + NotesTextBox.Text + ", ,";
+            table[6] = "C";
+            table[7] = "Time(mS),Force(N),Stroke(Micron),Current(mA),Index";
+            for (i = 0; i < 8; i++)
+            {
+                sb.AppendLine(string.Join(delimiter, table[i]));
+            }
+            for (i = dataNumber3; i < dataNumber4; i++)
+            {
+                table[i - dataNumber3 + 9] = TimeData[i].ToString("0.00") + "," + ForceData[i].ToString("0.00") + "," + StrokeData[i].ToString("0.00") + "," + CurrentData[i].ToString("0.00") + "," + IndexData[i].ToString();
+                sb.AppendLine(string.Join(delimiter, table[i - dataNumber3 + 9]));
+            }
+            fileName = "SN" + SerialNumberTextBox.Text + "_Test" + TestNumberTextBox.Text + "_C_" + cycleNumber.ToString() + "_Date" + TimeStamp + ".CSV";
+            System.IO.File.WriteAllText(@dirPath + fileName, sb.ToString());
+            Array.Clear(table, 0, table.Length);
+            sb.Clear();
+            table[0] = "Operator Name," + OperatorTextBox.Text + ", ,";
+            table[1] = "Organization name," + OrganizationTextBox.Text + ", ,";
+            table[2] = "Test Date," + Date;
+            table[3] = "Test Number," + TestNumberTextBox.Text + ", ,";
+            table[4] = "Serial Number," + SerialNumberTextBox.Text + ", ,";
+            table[5] = "Notes," + NotesTextBox.Text + ", ,";
+            table[6] = "D";
+            table[7] = "Time(mS),Force(N),Stroke(Micron),Current(mA),Index";
+            for (i = 0; i < 8; i++)
+            {
+                sb.AppendLine(string.Join(delimiter, table[i]));
+            }
+            i = dataNumber4;
+            while (i < DataCount && CurrentData[i] != 0)
+            {
+                table[i - dataNumber4 + 9] = TimeData[i].ToString("0.00") + "," + ForceData[i].ToString("0.00") + "," + StrokeData[i].ToString("0.00") + "," + CurrentData[i].ToString("0.00") + "," + IndexData[i].ToString();
+                sb.AppendLine(string.Join(delimiter, table[i - dataNumber4 + 9]));
+                i++;
+            }
+            table[i - dataNumber4] = TimeData[i].ToString("0.00") + "," + ForceData[i].ToString("0.00") + "," + StrokeData[i].ToString("0.00") + "," + CurrentData[i].ToString("0.00");
+            fileName = "SN" + SerialNumberTextBox.Text + "_Test" + TestNumberTextBox.Text + "_D_" + cycleNumber.ToString() + "_Date" + TimeStamp + ".CSV";
+            System.IO.File.WriteAllText(@dirPath + fileName, sb.ToString());
+
+            // JJ ZipFile.CreateFromDirectory(dirPath, basePath + DateTime.Now("yyyyy-MM-dd-hh-mm"));
         }
         private void AutoMode(bool mode)
         {
@@ -1412,10 +1650,32 @@ namespace Diaphragm_Test
             SpeedTimer = 0;
             StartDelay = 0;
             StartDelayDone = false;
+            
+
+            this.ForceStrokeChart.Series[0].MarkerSize = 6;
+            this.ForceStrokeChart.Series[0].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
+            this.ForceStrokeChart.Series[0].MarkerColor = Color.Black;
+
+            this.CurrentStrokeChart.Series[0].MarkerSize = 6;
+            this.CurrentStrokeChart.Series[0].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
+            this.CurrentStrokeChart.Series[0].MarkerColor = Color.Black;
+
+            this.ForceTimeChart.Series[0].MarkerSize = 6;
+            this.ForceTimeChart.Series[0].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
+            this.ForceTimeChart.Series[0].MarkerColor = Color.Black;
+
+            this.ForceStrokeChart.Series[0].Color = Color.Magenta;
+            this.CurrentStrokeChart.Series[0].Color = Color.Blue;
+            this.ForceTimeChart.Series[0].Color = Color.Green;
+
             for (int i = 0;i< 8640000; i++)
             {
                 IndexData[i] = 0;
             }
+
+            ForceStrokeChart.Show();
+            CurrentStrokeChart.Show();
+            ForceTimeChart.Show();
         }
         private void Restart()
         {

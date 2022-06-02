@@ -38,6 +38,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.ReadWriteThread = new System.ComponentModel.BackgroundWorker();
             this.ForceTextBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -117,6 +120,12 @@
             this.CurrentStrokeRadioButton = new System.Windows.Forms.RadioButton();
             this.CurrentStrokeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.DeviceStatusLabel = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ConfigGroupBox.SuspendLayout();
             this.LogGroupBox.SuspendLayout();
             this.AutoGroupBox.SuspendLayout();
@@ -132,6 +141,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ForceStrokeChart)).BeginInit();
             this.ChartControlGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentStrokeChart)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // ReadWriteThread
@@ -685,7 +697,7 @@
             this.ForceTimeChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.ForceTimeChart.Legends.Add(legend1);
-            this.ForceTimeChart.Location = new System.Drawing.Point(490, 66);
+            this.ForceTimeChart.Location = new System.Drawing.Point(490, 11);
             this.ForceTimeChart.Name = "ForceTimeChart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -693,10 +705,9 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.ForceTimeChart.Series.Add(series1);
-            this.ForceTimeChart.Size = new System.Drawing.Size(1420, 890);
+            this.ForceTimeChart.Size = new System.Drawing.Size(33, 49);
             this.ForceTimeChart.TabIndex = 72;
             this.ForceTimeChart.TabStop = false;
-            this.ForceTimeChart.Visible = false;
             // 
             // ControlGroupBox
             // 
@@ -952,7 +963,7 @@
             this.ForceStrokeChart.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.ForceStrokeChart.Legends.Add(legend2);
-            this.ForceStrokeChart.Location = new System.Drawing.Point(490, 66);
+            this.ForceStrokeChart.Location = new System.Drawing.Point(487, 638);
             this.ForceStrokeChart.Name = "ForceStrokeChart";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -961,10 +972,9 @@
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.ForceStrokeChart.Series.Add(series2);
-            this.ForceStrokeChart.Size = new System.Drawing.Size(1419, 890);
+            this.ForceStrokeChart.Size = new System.Drawing.Size(55, 48);
             this.ForceStrokeChart.TabIndex = 16;
             this.ForceStrokeChart.TabStop = false;
-            this.ForceStrokeChart.Visible = false;
             // 
             // ForceStrokeRadioButton
             // 
@@ -1023,7 +1033,7 @@
             this.CurrentStrokeChart.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.CurrentStrokeChart.Legends.Add(legend3);
-            this.CurrentStrokeChart.Location = new System.Drawing.Point(491, 66);
+            this.CurrentStrokeChart.Location = new System.Drawing.Point(487, 557);
             this.CurrentStrokeChart.Name = "CurrentStrokeChart";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -1032,7 +1042,7 @@
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.CurrentStrokeChart.Series.Add(series3);
-            this.CurrentStrokeChart.Size = new System.Drawing.Size(1419, 890);
+            this.CurrentStrokeChart.Size = new System.Drawing.Size(55, 54);
             this.CurrentStrokeChart.TabIndex = 87;
             this.CurrentStrokeChart.TabStop = false;
             // 
@@ -1045,11 +1055,89 @@
             this.DeviceStatusLabel.TabIndex = 98;
             this.DeviceStatusLabel.Text = "Status";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Location = new System.Drawing.Point(487, 4);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1368, 966);
+            this.tabControl1.TabIndex = 101;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.chart1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1360, 940);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Force-Stroke";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(56, 26);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Current-Stroke";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(56, 26);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Force-Time";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(56, 26);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Combined";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // chart1
+            // 
+            chartArea4.AxisX.Title = "Stroke(µm)";
+            chartArea4.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.AxisY.Title = "Force(N)";
+            chartArea4.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
+            this.chart1.Location = new System.Drawing.Point(-19, 296);
+            this.chart1.Name = "chart1";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.Blue;
+            series4.IsVisibleInLegend = false;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
+            this.chart1.Size = new System.Drawing.Size(1301, 314);
+            this.chart1.TabIndex = 18;
+            this.chart1.TabStop = false;
+            this.chart1.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1007);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.TempStatusLabel);
             this.Controls.Add(this.PowerStatusLabel);
             this.Controls.Add(this.DeviceStatusLabel);
@@ -1091,6 +1179,9 @@
             this.ChartControlGroupBox.ResumeLayout(false);
             this.ChartControlGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentStrokeChart)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1176,6 +1267,12 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox NotesTextBox;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 

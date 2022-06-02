@@ -1,0 +1,10 @@
+SlopeRate(mA/s)=100 Rate-of-change of voice coil actuator drive current
+Cycle#=1 Note that one 'cycle' is TWO full waveform periods
+MaxCurrent(mA)=3500 Maximum current limit in mA
+MaxForce(N)=280 Maximum force limit in Newtons
+MaxStroke(um)=3000 Maximum stroke limit in microns
+ScaleFactor=0.005 This is the current encoder resolution in microns (1/1e6 metre)
+PositionOffset=-1468
+LoadcellOffset=7978208
+LoadcellGain=1.296
+
