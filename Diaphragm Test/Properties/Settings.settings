@@ -20,5 +20,8 @@
     <Setting Name="Notes" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="ConfigFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Config.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

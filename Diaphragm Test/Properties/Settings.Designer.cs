@@ -91,5 +91,17 @@ namespace Diaphragm_Test.Properties {
                 this["Notes"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Config.txt")]
+        public string ConfigFilePath {
+            get {
+                return ((string)(this["ConfigFilePath"]));
+            }
+            set {
+                this["ConfigFilePath"] = value;
+            }
+        }
     }
 }

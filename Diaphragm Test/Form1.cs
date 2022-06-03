@@ -222,7 +222,6 @@ namespace Diaphragm_Test
         bool DataReceived = false;
         bool StatusReceived = false;
         double RampTimeMultiply = 0;
-        string ConfigFilePath = Application.StartupPath + @"\Config.txt";
         string Password = "1234";
         double OldCurrent = 0;
         double SpeedRatio = 13.2;
@@ -237,7 +236,6 @@ namespace Diaphragm_Test
         bool TempError = false;
         bool ForceLimit = false;
         int SpeedTimer = 0;
-        bool LoadDataOnce = false;
         int TestIndex = 0;
         int StartDelay = 0;
         bool StartDelayDone = false;
@@ -252,16 +250,16 @@ namespace Diaphragm_Test
             DEV_BROADCAST_DEVICEINTERFACE DeviceBroadcastHeader = new DEV_BROADCAST_DEVICEINTERFACE();
             DeviceBroadcastHeader.dbcc_devicetype = DBT_DEVTYP_DEVICEINTERFACE;
             DeviceBroadcastHeader.dbcc_size = (uint)Marshal.SizeOf(DeviceBroadcastHeader);
-            DeviceBroadcastHeader.dbcc_reserved = 0;	
+            DeviceBroadcastHeader.dbcc_reserved = 0;
             DeviceBroadcastHeader.dbcc_classguid = InterfaceClassGuid;
 
-            IntPtr pDeviceBroadcastHeader = IntPtr.Zero;  
-            pDeviceBroadcastHeader = Marshal.AllocHGlobal(Marshal.SizeOf(DeviceBroadcastHeader)); 
-            Marshal.StructureToPtr(DeviceBroadcastHeader, pDeviceBroadcastHeader, false); 
+            IntPtr pDeviceBroadcastHeader = IntPtr.Zero;
+            pDeviceBroadcastHeader = Marshal.AllocHGlobal(Marshal.SizeOf(DeviceBroadcastHeader));
+            Marshal.StructureToPtr(DeviceBroadcastHeader, pDeviceBroadcastHeader, false);
             RegisterDeviceNotification(this.Handle, pDeviceBroadcastHeader, DEVICE_NOTIFY_WINDOW_HANDLE);
 
 
-            if (CheckIfPresentAndGetUSBDevicePath())    
+            if (CheckIfPresentAndGetUSBDevicePath())
             {
                 uint ErrorStatusWrite;
                 uint ErrorStatusRead;
@@ -274,20 +272,20 @@ namespace Diaphragm_Test
 
                 if ((ErrorStatusWrite == ERROR_SUCCESS) && (ErrorStatusRead == ERROR_SUCCESS))
                 {
-                    AttachedState = true;       
+                    AttachedState = true;
                     AttachedButBroken = false;
                 }
-                else 
+                else
                 {
-                    AttachedState = false;      
-                    AttachedButBroken = true;   
+                    AttachedState = false;
+                    AttachedButBroken = true;
                     if (ErrorStatusWrite == ERROR_SUCCESS)
                         WriteHandleToUSBDevice.Close();
                     if (ErrorStatusRead == ERROR_SUCCESS)
                         ReadHandleToUSBDevice.Close();
                 }
             }
-            else    
+            else
             {
                 AttachedState = false;
                 AttachedButBroken = false;
@@ -302,7 +300,7 @@ namespace Diaphragm_Test
                 DeviceStatusLabel.Text = "Device not found";
             }
 
-            ReadWriteThread.RunWorkerAsync();   
+            ReadWriteThread.RunWorkerAsync();
 
             PasswordTextBox.PasswordChar = '*';
 
@@ -316,16 +314,17 @@ namespace Diaphragm_Test
 
                 tabPage3.Controls.Add(ForceTimeChart);
                 ForceTimeChart.SetBounds(0, 0, 1360, 940);
-/*
-                tabPage4.Controls.Add(ForceStrokeChart);
-                ForceTimeChart.SetBounds(0, 0, 1360, 310);
-                tabPage4.Controls.Add(CurrentStrokeChart);
-                ForceTimeChart.SetBounds(0, 315, 1360, 310);
-                tabPage4.Controls.Add(ForceTimeChart);
-                ForceTimeChart.SetBounds(0, 630, 1360, 310);
-*/
+                /*
+                                tabPage4.Controls.Add(ForceStrokeChart);
+                                ForceTimeChart.SetBounds(0, 0, 1360, 310);
+                                tabPage4.Controls.Add(CurrentStrokeChart);
+                                ForceTimeChart.SetBounds(0, 315, 1360, 310);
+                                tabPage4.Controls.Add(ForceTimeChart);
+                                ForceTimeChart.SetBounds(0, 630, 1360, 310);
+                */
 
-            } catch (Exception e) { Console.WriteLine(e); }
+            }
+            catch (Exception e) { Console.WriteLine(e); }
         }
         bool CheckIfPresentAndGetUSBDevicePath()
         {
@@ -359,16 +358,16 @@ namespace Diaphragm_Test
                         if (SetupDiEnumDeviceInterfaces(DeviceInfoTable, IntPtr.Zero, ref InterfaceClassGuid, InterfaceIndex, ref InterfaceDataStructure))
                         {
                             ErrorStatus = (uint)Marshal.GetLastWin32Error();
-                            if (ErrorStatus == ERROR_NO_MORE_ITEMS) 
-                            {   
-                                SetupDiDestroyDeviceInfoList(DeviceInfoTable);  
+                            if (ErrorStatus == ERROR_NO_MORE_ITEMS)
+                            {
+                                SetupDiDestroyDeviceInfoList(DeviceInfoTable);
                                 return false;
                             }
                         }
-                        else    
+                        else
                         {
                             ErrorStatus = (uint)Marshal.GetLastWin32Error();
-                            SetupDiDestroyDeviceInfoList(DeviceInfoTable);  
+                            SetupDiDestroyDeviceInfoList(DeviceInfoTable);
                             return false;
                         }
                         DevInfoData.cbSize = (uint)Marshal.SizeOf(DevInfoData);
@@ -377,9 +376,9 @@ namespace Diaphragm_Test
                         SetupDiGetDeviceRegistryProperty(DeviceInfoTable, ref DevInfoData, SPDRP_HARDWAREID, ref dwRegType, IntPtr.Zero, 0, ref dwRegSize);
                         PropertyValueBuffer = Marshal.AllocHGlobal((int)dwRegSize);
                         SetupDiGetDeviceRegistryProperty(DeviceInfoTable, ref DevInfoData, SPDRP_HARDWAREID, ref dwRegType, PropertyValueBuffer, dwRegSize, ref dwRegSize2);
-                        String DeviceIDFromRegistry = Marshal.PtrToStringUni(PropertyValueBuffer); 
+                        String DeviceIDFromRegistry = Marshal.PtrToStringUni(PropertyValueBuffer);
 
-                        Marshal.FreeHGlobal(PropertyValueBuffer);      
+                        Marshal.FreeHGlobal(PropertyValueBuffer);
                         DeviceIDFromRegistry = DeviceIDFromRegistry.ToLowerInvariant();
                         DeviceIDToFind = DeviceIDToFind.ToLowerInvariant();
                         MatchFound = DeviceIDFromRegistry.Contains(DeviceIDToFind);
@@ -387,22 +386,22 @@ namespace Diaphragm_Test
                         {
                             DetailedInterfaceDataStructure.cbSize = (uint)Marshal.SizeOf(DetailedInterfaceDataStructure);
                             SetupDiGetDeviceInterfaceDetail(DeviceInfoTable, ref InterfaceDataStructure, IntPtr.Zero, 0, ref StructureSize, IntPtr.Zero);
-                            IntPtr pUnmanagedDetailedInterfaceDataStructure = IntPtr.Zero; 
-                            pUnmanagedDetailedInterfaceDataStructure = Marshal.AllocHGlobal((int)StructureSize);    
-                            DetailedInterfaceDataStructure.cbSize = 6; 
-                            Marshal.StructureToPtr(DetailedInterfaceDataStructure, pUnmanagedDetailedInterfaceDataStructure, false); 
+                            IntPtr pUnmanagedDetailedInterfaceDataStructure = IntPtr.Zero;
+                            pUnmanagedDetailedInterfaceDataStructure = Marshal.AllocHGlobal((int)StructureSize);
+                            DetailedInterfaceDataStructure.cbSize = 6;
+                            Marshal.StructureToPtr(DetailedInterfaceDataStructure, pUnmanagedDetailedInterfaceDataStructure, false);
                             if (SetupDiGetDeviceInterfaceDetail(DeviceInfoTable, ref InterfaceDataStructure, pUnmanagedDetailedInterfaceDataStructure, StructureSize, IntPtr.Zero, IntPtr.Zero))
                             {
-                                IntPtr pToDevicePath = new IntPtr((uint)pUnmanagedDetailedInterfaceDataStructure.ToInt32() + 4);  
-                                DevicePath = Marshal.PtrToStringUni(pToDevicePath); 
-                                SetupDiDestroyDeviceInfoList(DeviceInfoTable);	
-                                Marshal.FreeHGlobal(pUnmanagedDetailedInterfaceDataStructure);  
+                                IntPtr pToDevicePath = new IntPtr((uint)pUnmanagedDetailedInterfaceDataStructure.ToInt32() + 4);
+                                DevicePath = Marshal.PtrToStringUni(pToDevicePath);
+                                SetupDiDestroyDeviceInfoList(DeviceInfoTable);
+                                Marshal.FreeHGlobal(pUnmanagedDetailedInterfaceDataStructure);
                                 return true;
                             }
-                            else 
+                            else
                             {
                                 uint ErrorCode = (uint)Marshal.GetLastWin32Error();
-                                SetupDiDestroyDeviceInfoList(DeviceInfoTable);	
+                                SetupDiDestroyDeviceInfoList(DeviceInfoTable);
                                 Marshal.FreeHGlobal(pUnmanagedDetailedInterfaceDataStructure);
                                 return false;
                             }
@@ -410,7 +409,7 @@ namespace Diaphragm_Test
 
                         InterfaceIndex++;
                         LoopCounter++;
-                        if (LoopCounter == 10000000)    
+                        if (LoopCounter == 10000000)
                         {
                             return false;
                         }
@@ -429,9 +428,9 @@ namespace Diaphragm_Test
             {
                 if (((int)m.WParam == DBT_DEVICEARRIVAL) || ((int)m.WParam == DBT_DEVICEREMOVEPENDING) || ((int)m.WParam == DBT_DEVICEREMOVECOMPLETE) || ((int)m.WParam == DBT_CONFIGCHANGED))
                 {
-                    if (CheckIfPresentAndGetUSBDevicePath())	
+                    if (CheckIfPresentAndGetUSBDevicePath())
                     {
-                        if ((AttachedState == false) || (AttachedButBroken == true))	
+                        if ((AttachedState == false) || (AttachedButBroken == true))
                         {
                             uint ErrorStatusWrite;
                             uint ErrorStatusRead;
@@ -442,14 +441,14 @@ namespace Diaphragm_Test
 
                             if ((ErrorStatusWrite == ERROR_SUCCESS) && (ErrorStatusRead == ERROR_SUCCESS))
                             {
-                                AttachedState = true;		
+                                AttachedState = true;
                                 AttachedButBroken = false;
                                 DeviceStatusLabel.Text = "Device Found, AttachedState = TRUE";
                             }
-                            else 
+                            else
                             {
-                                AttachedState = false;		
-                                AttachedButBroken = true;	
+                                AttachedState = false;
+                                AttachedButBroken = true;
                                 if (ErrorStatusWrite == ERROR_SUCCESS)
                                     WriteHandleToUSBDevice.Close();
                                 if (ErrorStatusRead == ERROR_SUCCESS)
@@ -457,9 +456,9 @@ namespace Diaphragm_Test
                             }
                         }
                     }
-                    else	
+                    else
                     {
-                        if (AttachedState == true)		
+                        if (AttachedState == true)
                         {
                             AttachedState = false;
                             WriteHandleToUSBDevice.Close();
@@ -469,14 +468,14 @@ namespace Diaphragm_Test
                         AttachedButBroken = false;
                     }
                 }
-            } 
+            }
 
             base.WndProc(ref m);
         } //end of: WndProc() function
         private void ReadWriteThread_DoWork(object sender, DoWorkEventArgs e)
         {
-            Byte[] OUTBuffer = new byte[65];    
-            Byte[] INBuffer = new byte[65];     
+            Byte[] OUTBuffer = new byte[65];
+            Byte[] INBuffer = new byte[65];
             uint BytesWritten = 0;
             uint BytesRead = 0;
 
@@ -484,36 +483,36 @@ namespace Diaphragm_Test
             {
                 try
                 {
-                    if (AttachedState == true)	
+                    if (AttachedState == true)
                     {
                         if (SendControl == true)
                         {
 
-                            OUTBuffer[0] = 0;	
+                            OUTBuffer[0] = 0;
                             OUTBuffer[1] = 0x81;
                             OUTBuffer[2] = (byte)(ControlWord);
                             OUTBuffer[3] = (byte)(ControlWord >> 8);
-                            for (uint i = 4; i < 65; i++)	
-                                OUTBuffer[i] = 0xFF;		
-                            WriteFile(WriteHandleToUSBDevice, OUTBuffer, 65, ref BytesWritten, IntPtr.Zero);	
+                            for (uint i = 4; i < 65; i++)
+                                OUTBuffer[i] = 0xFF;
+                            WriteFile(WriteHandleToUSBDevice, OUTBuffer, 65, ref BytesWritten, IntPtr.Zero);
                             SendControl = false;
                             if (ForceLimit)
                             {
-                              ControlWord = 1;
-                              SendControl = true;
-                              ForceLimit = false;
+                                ControlWord = 1;
+                                SendControl = true;
+                                ForceLimit = false;
                             }
                         }
 
-                        OUTBuffer[0] = 0x00;	
-                        OUTBuffer[1] = 0x37;	
+                        OUTBuffer[0] = 0x00;
+                        OUTBuffer[1] = 0x37;
                         for (uint i = 2; i < 65; i++)
                             OUTBuffer[i] = 0xFF;
 
                         if (WriteFile(WriteHandleToUSBDevice, OUTBuffer, 65, ref BytesWritten, IntPtr.Zero))
                         {
                             INBuffer[0] = 0;
-                            if (ReadFileManagedBuffer(ReadHandleToUSBDevice, INBuffer, 65, ref BytesRead, IntPtr.Zero))		
+                            if (ReadFileManagedBuffer(ReadHandleToUSBDevice, INBuffer, 65, ref BytesRead, IntPtr.Zero))
                             {
                                 if (INBuffer[1] == 0x37)
                                 {
@@ -524,12 +523,12 @@ namespace Diaphragm_Test
                                     Index = INBuffer[18];
                                     StatusWord = (INBuffer[20] * 0x100) + INBuffer[19];
                                     State = INBuffer[21];
-                                    if (State > OldState )
+                                    if (State > OldState)
                                     {
                                         if (State == 10 || State == 30 || State == 50 || State == 70)
                                             if (!SendOnce) SendOnce = true;
                                         StartDelayDone = false;
-                                        StartDelay = 0; 
+                                        StartDelay = 0;
                                     }
                                     OldState = State;
                                     if (RawCurrent >= 0x20000)
@@ -555,15 +554,15 @@ namespace Diaphragm_Test
                                     if (Index == 1)
                                     {
                                         TestIndex++;
-                                        IndexData[DataCount-1] = Index;
+                                        IndexData[DataCount - 1] = Index;
                                     }
 
                                     if (TimeCount > OldRawTime)
                                     {
-                                        StrokeData[DataCount] = Math.Round(Stroke,0);
+                                        StrokeData[DataCount] = Math.Round(Stroke, 0);
                                         ForceData[DataCount] = Force;
                                         CurrentData[DataCount] = Current;
-                                        TimeData[DataCount] = TimeCount*5;
+                                        TimeData[DataCount] = TimeCount * 5;
                                         DataCount++;
                                     }
                                     OldRawTime = TimeCount;
@@ -573,8 +572,8 @@ namespace Diaphragm_Test
                         if (SendCofig == true)
                         {
 
-                            OUTBuffer[0] = 0;				
-                            OUTBuffer[1] = 0x80;            
+                            OUTBuffer[0] = 0;
+                            OUTBuffer[1] = 0x80;
 
                             OUTBuffer[2] = (byte)(AnalogSP & 0x000000FF);
                             OUTBuffer[3] = (byte)((AnalogSP & 0x0000FF00) >> 8);
@@ -600,23 +599,23 @@ namespace Diaphragm_Test
                             OUTBuffer[19] = (byte)(((int)(ScaleFactor * 1000) & 0x0000FF00) >> 8);
 
 
-                            for (uint i = 20; i < 65; i++)	
-                                OUTBuffer[i] = 0xFF;		
-                            WriteFile(WriteHandleToUSBDevice, OUTBuffer, 65, ref BytesWritten, IntPtr.Zero);	
+                            for (uint i = 20; i < 65; i++)
+                                OUTBuffer[i] = 0xFF;
+                            WriteFile(WriteHandleToUSBDevice, OUTBuffer, 65, ref BytesWritten, IntPtr.Zero);
                             SendCofig = false;
                         }
-                    } 
+                    }
                     else
                     {
-                        Thread.Sleep(5);    
-                                            
+                        Thread.Sleep(5);
+
                     }
                 }
                 catch
                 {
                 }
 
-            } 
+            }
             //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
         }
         public unsafe bool ReadFileManagedBuffer(SafeFileHandle hFile, byte[] INBuffer, uint nNumberOfBytesToRead, ref uint lpNumberOfBytesRead, IntPtr lpOverlapped)
@@ -625,7 +624,7 @@ namespace Diaphragm_Test
 
             try
             {
-                pINBuffer = Marshal.AllocHGlobal((int)nNumberOfBytesToRead);    
+                pINBuffer = Marshal.AllocHGlobal((int)nNumberOfBytesToRead);
 
                 if (ReadFile(hFile, pINBuffer, nNumberOfBytesToRead, ref lpNumberOfBytesRead, lpOverlapped))
                 {
@@ -651,7 +650,14 @@ namespace Diaphragm_Test
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (!OfflineMode)
+            if (OfflineMode)
+            {
+                StatusLabel.Text = "Offline Mode";
+                EnableControls();
+                LoadData();
+                DisplayValues();
+            }
+            else
             {
                 if (AttachedState == true && !PowerError && !TempError)
                 {
@@ -686,8 +692,8 @@ namespace Diaphragm_Test
                         this.CurrentStrokeChart.Series[0].Points.AddXY(Math.Round(Stroke, 0), Current);
                         if (this.CurrentStrokeChart.Series[0].Points.Count > 2)
                         {
-                            this.CurrentStrokeChart.Series[0].Points[this.CurrentStrokeChart.Series[0].Points.Count-1].MarkerSize = 6;
-                            this.CurrentStrokeChart.Series[0].Points[this.CurrentStrokeChart.Series[0].Points.Count-2].MarkerSize = 0;
+                            this.CurrentStrokeChart.Series[0].Points[this.CurrentStrokeChart.Series[0].Points.Count - 1].MarkerSize = 6;
+                            this.CurrentStrokeChart.Series[0].Points[this.CurrentStrokeChart.Series[0].Points.Count - 2].MarkerSize = 0;
                             this.CurrentStrokeChart.Series[0].Points[0].MarkerSize = 0;
                         }
                         this.ForceTimeChart.Series[0].Points.AddXY(Math.Round(Time, 2), Force);
@@ -741,10 +747,10 @@ namespace Diaphragm_Test
                             break;
 
                     }
-//                    if ((StatusWord & 32) == 32 && State == 0)
+                    //                    if ((StatusWord & 32) == 32 && State == 0)
                     if ((StatusWord & 32) == 32 && State == 0)
-                        {
-                            if (CycleNumber < CycleSP)
+                    {
+                        if (CycleNumber < CycleSP)
                         {
                             timer1.Enabled = false;
                             StatusLabel.Text = "Saving";
@@ -767,20 +773,6 @@ namespace Diaphragm_Test
                         TimeRemainingTextBox.Text = t.Minutes.ToString("00") + ":" + t.Seconds.ToString("00");
                     }
                 }
-
-            }
-            else
-            {
-                StatusLabel.Text = "Offline Mode";
-                EnableControls();
-                if (LoadDataOnce)
-                {
-                    LoadData();
-                    LoadDataOnce = false;
-                }
-                DisplayValues();
-
-
             }
         }
         void EnableControls()
@@ -813,10 +805,10 @@ namespace Diaphragm_Test
         {
             if (!OfflineMode)
             {
-                if (State>0 && !StartDelayDone)
+                if (State > 0 && !StartDelayDone)
                 {
                     StartDelay++;
-                    if (StartDelay>200)
+                    if (StartDelay > 200)
                     {
                         StartDelayDone = true;
                     }
@@ -848,21 +840,21 @@ namespace Diaphragm_Test
                     SpeedTimer = 0;
                 }
                 if (((StatusWord & 2) == 2) || ((StatusWord & 4) == 4))
-                if (State > 0 && StartDelayDone)
-                {
-                    if (Speed == 0)
+                    if (State > 0 && StartDelayDone)
                     {
-                        Stop();
-                        MessageBox.Show("Encoder Not Detected");
-                        return;
-                    }
+                        if (Speed == 0)
+                        {
+                            Stop();
+                            MessageBox.Show("Encoder Not Detected");
+                            return;
+                        }
                         if ((Math.Abs(FSpeed) - (SlopeRate / 20)) > 5 || FSpeed == 0)
-                    {
-                        Stop();
-                        MessageBox.Show("Load Cell Not Detected");
-                        return;
+                        {
+                            Stop();
+                            MessageBox.Show("Load Cell Not Detected");
+                            return;
+                        }
                     }
-                }
                 if (Current != 0)
                     CurrentTextBox.Text = Current.ToString("0.0");
                 else
@@ -1008,7 +1000,36 @@ namespace Diaphragm_Test
             {
                 text += lines[i] + "\r\n";
             }
-            System.IO.File.WriteAllText(ConfigFilePath, text);
+
+            // TODO: test the lines below.
+            string configFilePath;
+            try
+            {
+                configFilePath = getConfigFilePath(forRead: false);
+            }
+            catch (InvalidConfigFilePathException ex)
+            {
+                MessageBox.Show(ex.Message, "Invalid Configuration File Path", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                System.IO.File.WriteAllText(configFilePath, text);
+                MessageBox.Show(
+                    "Successfully saved the new force offset in " + configFilePath + ".",
+                    "Successful Configuration Save",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Failed to write the configuration to: " + configFilePath + ". " + ex.Message,
+                    "Failed Configuration Save",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
         void ReadConfigFile()
         {
@@ -1027,14 +1048,28 @@ namespace Diaphragm_Test
             string[] PositionOffsetText = new string[10];
             String[] words = new String[10];
             String text = " ";
-            char[] charsToTrim = { '\r'};
+            char[] charsToTrim = { '\r' };
+
+
+            string configFilePath;
             try
             {
-                text = System.IO.File.ReadAllText(ConfigFilePath);
+                configFilePath = getConfigFilePath(forRead: true);
+            }
+            catch (InvalidConfigFilePathException ex)
+            {
+                string message = ex.Message + "  Enter or select a valid file path at the top of the window and press Apply button.";
+                MessageBox.Show(message, "Failed to read the configuration file.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                text = System.IO.File.ReadAllText(configFilePath);
                 text = Regex.Replace(text, "\r", string.Empty);
                 lines = text.Split('\n');
                 try
-                { 
+                {
                     for (i = 0; i < lines.Length; i++)              // JJ
                     {
                         if (lines[i].StartsWith("////")) continue;  //JJ
@@ -1076,9 +1111,13 @@ namespace Diaphragm_Test
                     MessageBox.Show("Wrong Format");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Config File Not Found");
+                MessageBox.Show(
+                    "Failed to open " + configFilePath + ". " + ex.Message,
+                    "Open Configuration File Failure",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             }
             try
@@ -1087,8 +1126,8 @@ namespace Diaphragm_Test
                 {
                     MessageBox.Show("Invalid Slope Rate");
                 }
-                else 
-                   SlopeRate = Convert.ToDouble(slopeRateText[0]);
+                else
+                    SlopeRate = Convert.ToDouble(slopeRateText[0]);
             }
             catch
             {
@@ -1404,7 +1443,8 @@ namespace Diaphragm_Test
             try
             {
                 Directory.SetCurrentDirectory(dirPath);
-            } catch (DirectoryNotFoundException e)
+            }
+            catch (DirectoryNotFoundException e)
             {
                 Console.WriteLine("Directory not found {0}", e);
             }
@@ -1652,7 +1692,7 @@ namespace Diaphragm_Test
             SpeedTimer = 0;
             StartDelay = 0;
             StartDelayDone = false;
-            
+
 
             this.ForceStrokeChart.Series[0].MarkerSize = 6;
             this.ForceStrokeChart.Series[0].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
@@ -1670,7 +1710,7 @@ namespace Diaphragm_Test
             this.CurrentStrokeChart.Series[0].Color = Color.Blue;
             this.ForceTimeChart.Series[0].Color = Color.Green;
 
-            for (int i = 0;i< 8640000; i++)
+            for (int i = 0; i < 8640000; i++)
             {
                 IndexData[i] = 0;
             }
@@ -1708,7 +1748,7 @@ namespace Diaphragm_Test
         }
         private void LoadData()
         {
-            MaxRawCurrent = (long)(((MaxCurrent/CurrentGain) * 262144) / 20000);
+            MaxRawCurrent = (long)(((MaxCurrent / CurrentGain) * 262144) / 20000);
             RampFreq = (short)(SlopeRate * SpeedRatio);
             CurrenthScrollBar.Maximum = (int)MaxRawCurrent;
             if (RampFreq > 0)
@@ -1719,7 +1759,6 @@ namespace Diaphragm_Test
                 ProgressBar.Maximum = (int)TimeRemaining;
             }
             SendCofig = true;
-            ApplyBtn.Enabled = false;
             SlopeRateTextBox.Text = SlopeRate.ToString("0.0");
             CycleSPTextBox.Text = CycleSP.ToString();
             MaxCurrentTextBox.Text = MaxCurrent.ToString("0.00");
@@ -1730,31 +1769,69 @@ namespace Diaphragm_Test
         }
 
         // <summary>
-        // Restore the header information (operator name, organization name, etc.) that were
-        // saved the last time this form was closed.
+        // Restore the configuration file path and header information (operator name,
+        // organization name, etc.) that were saved the last time this form was
+        // closed.
         // </summary>
-        private void RestoreHeaderInfo()
+        private void RestoreUserSettings()
         {
-            OperatorTextBox.Text     = Properties.Settings.Default.OperatorName;
+            ConfigFilePathTextBox.Text = Properties.Settings.Default.ConfigFilePath;
+
+            OperatorTextBox.Text = Properties.Settings.Default.OperatorName;
             OrganizationTextBox.Text = Properties.Settings.Default.OrganizationName;
-            TestNumberTextBox.Text   = Properties.Settings.Default.TestNumber;
+            TestNumberTextBox.Text = Properties.Settings.Default.TestNumber;
             SerialNumberTextBox.Text = Properties.Settings.Default.SerialNumber;
-            NotesTextBox.Text        = Properties.Settings.Default.Notes;
+            NotesTextBox.Text = Properties.Settings.Default.Notes;
         }
         // <summary>
-        // Save the header information (operator name, organization name, etc.) so that 
-        // it can be restored next time <c>RestoreHeaderInfo()</c> is called. This method
-        // is supposed to be called when the form is closed.
+        // Save the configuration file path and the header information (operator name,
+        // organization name, etc.) that the user entered. They will be restored next
+        // time <c>RestoreUserSettings()</c> is called. This method is supposed to be
+        // called when the form is closed.
         // </summary>
-        private void SaveHeaderInfo()
+        private void SaveUserSettings()
         {
-            Properties.Settings.Default.OperatorName     = OperatorTextBox.Text;
+            Properties.Settings.Default.ConfigFilePath = ConfigFilePathTextBox.Text;
+
+            Properties.Settings.Default.OperatorName = OperatorTextBox.Text;
             Properties.Settings.Default.OrganizationName = OrganizationTextBox.Text;
-            Properties.Settings.Default.TestNumber       = TestNumberTextBox.Text;
-            Properties.Settings.Default.SerialNumber     = SerialNumberTextBox.Text;
-            Properties.Settings.Default.Notes            = NotesTextBox.Text;
+            Properties.Settings.Default.TestNumber = TestNumberTextBox.Text;
+            Properties.Settings.Default.SerialNumber = SerialNumberTextBox.Text;
+            Properties.Settings.Default.Notes = NotesTextBox.Text;
 
             Properties.Settings.Default.Save();
+        }
+        // <summary>
+        // Get the currently selected configuration file path.
+        // </summary>
+        private string getConfigFilePath(bool forRead)
+        {
+            string path = ConfigFilePathTextBox.Text;
+
+            if (String.IsNullOrEmpty(path))
+            {
+                throw new InvalidConfigFilePathException("Configuration file path is empty.");
+            }
+
+            try
+            {
+                if (!System.IO.Path.IsPathRooted(path))
+                {
+                    path = System.IO.Path.Combine(Application.StartupPath, path);
+                }
+            }
+            catch (System.ArgumentException ex)
+            {
+                string message = "Configuration file path \"" + path + "\" is not valid because it includes one or more invalid characters.";
+                throw new InvalidConfigFilePathException(message, ex);
+            }
+
+            if (forRead && !System.IO.File.Exists(path))
+            {
+                throw new InvalidConfigFilePathException("Configuration file \"" + path + "\" does not exist.");
+            }
+
+            return path;
         }
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
@@ -1770,20 +1847,18 @@ namespace Diaphragm_Test
         {
             if (!OfflineMode)
             {
-               LoadOffset = RawForce;
-               SaveConfigFile();
+                LoadOffset = RawForce;
+                SaveConfigFile();
             }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            RestoreHeaderInfo();
+            RestoreUserSettings();
             ReadConfigFile();
-            ConfigFilePathLabel.Text = ConfigFilePath;
             AutoGroupBox.Hide();
             AutoMode(true);
             Auto = true;
             Stop();
-            if (OfflineMode) LoadDataOnce = true;
         }
         private void DownOnBtn_Click_1(object sender, EventArgs e)
         {
@@ -1797,19 +1872,18 @@ namespace Diaphragm_Test
             {
                 if (!OfflineMode) ZeroPosition();
             }
-            
+
         }
         private void OpenConfigBtn_Click(object sender, EventArgs e)
         {
-            if (System.IO.File.Exists(ConfigFilePath))
+            try
             {
-                System.Diagnostics.Process.Start("notepad.exe", ConfigFilePath);
-                ApplyBtn.Enabled = true;
+                string configFilePath = getConfigFilePath(forRead: true);
+                System.Diagnostics.Process.Start(configFilePath);
             }
-            else
+            catch (InvalidConfigFilePathException ex)
             {
-                MessageBox.Show("Config File Not Found");
-                ApplyBtn.Enabled = false;
+                MessageBox.Show(ex.Message, "Failed to open configuration file.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void AutoRadioButton_MouseDown(object sender, MouseEventArgs e)
@@ -1819,7 +1893,7 @@ namespace Diaphragm_Test
         }
         private void ForceStrokeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (ForceStrokeRadioButton.Checked) 
+            if (ForceStrokeRadioButton.Checked)
             {
                 ForceStrokeChart.Show();
                 CurrentStrokeChart.Hide();
@@ -1946,7 +2020,42 @@ namespace Diaphragm_Test
 
         private void Form1_Closing(object sender, FormClosingEventArgs e)
         {
-            SaveHeaderInfo();
+            SaveUserSettings();
+        }
+
+        private void SelectConfigFileBtn_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                try
+                {
+                    openFileDialog.InitialDirectory = System.IO.Path.GetDirectoryName(ConfigFilePathTextBox.Text);
+                }
+                catch (Exception)
+                {
+                    openFileDialog.InitialDirectory = Application.StartupPath;
+                }
+
+                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 1;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    ConfigFilePathTextBox.Text = openFileDialog.FileName;
+                }
+            }
+        }
+    }
+
+    internal class InvalidConfigFilePathException: Exception
+    {
+        public InvalidConfigFilePathException(string message)
+            : base(message)
+        {
+        }
+        public InvalidConfigFilePathException(string message, Exception inner)
+            : base(message, inner)
+        {
         }
     }
 }
